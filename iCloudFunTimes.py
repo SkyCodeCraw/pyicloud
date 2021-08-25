@@ -1,5 +1,10 @@
 from pyicloud import PyiCloudService
-api = PyiCloudService('[add apple id email here]', '[add apple id password here]')
+from datetime import date
+
+username = input("Enter your Appie ID:")
+password = input("Enter your password:")
+
+api = PyiCloudService(username, password)
 
 if api.requires_2fa:
     print("Two-factor authentication required.")
@@ -38,10 +43,12 @@ elif api.requires_2sa:
         print("Failed to verify verification code")
         sys.exit(1)
 
-
+start = date(2021, 8, 1)
+end = date(2021, 8, 31)
 
 print(api.iphone.status())
 print(api.devices)
 # api.reminders.post(title='Do this thing', due_date='today at 11pm')
-# print(api.calendar.events())
+# print(api.calendar.events(start, end))
+api.calendar.events(start, end)
 # print(api.reminders.lists())

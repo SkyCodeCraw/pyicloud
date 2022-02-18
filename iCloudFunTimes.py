@@ -1,8 +1,10 @@
 from pyicloud import PyiCloudService
 import datetime
 
-username = input("Enter your Appie ID:")
-password = input("Enter your password:")
+# username = input("Enter your Appie ID:")
+username = "jamesc1909@live.com"
+# password = input("Enter your password:")
+password = "thisisMine*?Craft1Poops"
 
 api = PyiCloudService(username, password)
 
